@@ -7,6 +7,13 @@ function list() {
         .where({ "is_playing": true })
 }
 
+function readMoviesTheatersId(theaterId) {
+    return knex("theaters as t")
+        .select("*")
+        .where({ theaters_id: theaterId })
+}
+
 module.exports = {
     list,
+    readMoviesTheatersId,
 }
