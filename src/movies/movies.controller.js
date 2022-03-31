@@ -21,7 +21,8 @@ async function list(req, res, next) {
 }
 
 async function moviesShowing(req, res, next) {
-
+    const moviesThatAreShowing = await service.moviesShowing();
+    res.json({ data: moviesShowing })
 }
 
 async function read(req, res, next) {

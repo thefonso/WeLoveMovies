@@ -7,21 +7,14 @@ function read(movieId) {
         .first();
 }
 
-function readTheaters(movieId) {
-    return knex("movies")
+function moviesShowing() {
+    return knex("movies_theaters")
         .select("*")
-        .where({ movie_id: movieId })
-        .join()
-}
-
-function readReviews(movieId) {
-
+        .where({ "is_showing": true })
 }
 
 
 module.exports = {
-    create,
     read,
-    readTheaters,
-    readReviews,
+    moviesShowing,
 }
