@@ -3,28 +3,32 @@ const controller = require("./movies.controller")
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router
-    .route("/")
-    .get(controller.list)
-    .all(methodNotAllowed);
+  .route(":/corsId")
+  .get(controller.read)
+  .all(methodNotAllowed);
 
 router
-    .route("/movies?is_showing=true")
-    .get(controller.moviesShowing)
-    .all(methodNotAllowed);
+  .route("/:movieId/reviews")
+  .get(controller.listReviews)
+  .all(methodNotAllowed);
 
 router
-    .route("/movies/:movieId")
-    .get(controller.read)
-    .all(methodNotAllowed);
+  .route("/:movieId/theaters")
+  .get(controller.readTheaters)
+  .all(methodNotAllowed);
 
 router
-    .route("/movies/:movieId/theaters")
-    .get(controller.read)
-    .all(methodNotAllowed);
+  .route("/:is_showing=true")
+  .get(controller.list)
+  .all(methodNotAllowed);
 
 router
-    .route("/movies/:movieId/reviews")
-    .get(controller.read)
-    .all(methodNotAllowed);
+  .route("/:movieId")
+  .get(controller.read)
+  .all(methodNotAllowed);
+router
+  .route("/")
+  .get(controller.list)
+  .all(methodNotAllowed);
 
 module.exports = router;

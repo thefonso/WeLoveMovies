@@ -1,0 +1,2 @@
+1.) CORS Installed 
+2.) Deployed
